@@ -45,6 +45,15 @@ print(f'Performance: {int(score * 100)}')
 
 # Save GSC data as JSON
 python scripts/gsc.py --json > gsc-data.json
+
+# GSC output structure (wrapped for consistency):
+python scripts/gsc.py --json | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+print(f\"Property: {data['property']}, Dimension: {data['dimension']}, Days: {data['days']}\")
+for row in data['rows']:
+    print(f\"{row['keys'][0]}: {row['clicks']} clicks\")
+"
 ```
 
 ---

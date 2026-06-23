@@ -157,7 +157,13 @@ def main():
         sys.exit(0)
 
     if args.json_out:
-        print(json.dumps(rows, indent=2))
+        output = {
+            "property": property_url,
+            "dimension": args.dimension,
+            "days": args.days,
+            "rows": rows
+        }
+        print(json.dumps(output, indent=2))
         sys.exit(0)
 
     print_table(rows, args.dimension, property_url, args.days)
