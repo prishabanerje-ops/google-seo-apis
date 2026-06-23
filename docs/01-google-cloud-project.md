@@ -29,14 +29,14 @@ After creation your project is selected automatically.
 The project ID (e.g. `seo-apis-123456`) appears in the header.
 You don't need to copy it now — it will appear in all API configuration screens.
 
-## 1.4 Enable Billing
+## 1.4 Enable Billing (optional for these APIs)
 
-1. In the left sidebar, click **Billing**
-2. Link a billing account, or create a new one
+PageSpeed Insights and Search Console are **free APIs** — billing is **not required**
+to enable or use them. You can skip this step.
 
-> **Note:** PageSpeed Insights and Search Console APIs are free at normal usage.
-> Billing is required to activate APIs but you won't be charged.
-> New Google Cloud accounts receive $300 in free credits.
+If Google prompts you to enable billing when activating an API (this does not happen
+for PSI or GSC), you can add a billing account at that point. New accounts receive
+$300 in free credits and you will not be charged for these two APIs.
 
 ---
 
