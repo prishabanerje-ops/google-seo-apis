@@ -1,4 +1,4 @@
-# Google SEO APIs — Windows Setup Script
+# Google SEO APIs - Windows Setup Script
 # Run from repo root: .\setup\setup.ps1
 
 $ErrorActionPreference = "Stop"
@@ -34,7 +34,7 @@ $repoDir = Split-Path -Parent $PSScriptRoot
 $venvDir = Join-Path $repoDir "venv"
 
 if (Test-Path $venvDir) {
-    Write-Host "  Existing venv found — skipping creation"
+    Write-Host "  Existing venv found - skipping creation"
 } else {
     Write-Host "  Creating virtual environment..."
     & $pythonCmd -m venv $venvDir
@@ -56,8 +56,8 @@ $python = Join-Path $venvDir "Scripts\python.exe"
 Write-Host ""
 Write-Host "One more step: authenticate with Google Search Console."
 Write-Host "Run:  venv\Scripts\activate"
-Write-Host "      python scripts\auth.py --auth --creds %USERPROFILE%\client_secret.json"
-Write-Host "See docs\03-credentials.md for how to get your client_secret.json file."
+Write-Host "      python scripts\auth.py --auth --creds client_secret.json"
+Write-Host "See docs\03-credentials.md for instructions."
 
 # 5. Next steps
 Write-Host ""
