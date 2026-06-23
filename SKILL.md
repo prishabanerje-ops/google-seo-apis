@@ -24,8 +24,7 @@ Lightweight skill with two scripts:
 - **`gsc.py`** — Google Search Console Search Analytics: top queries and pages
   with clicks, impressions, CTR, position. Uses OAuth Desktop App credentials.
 
-**Repo:** `~/Documents/google-seo-apis` (adjust to actual clone location)
-**Venv:** `venv/` inside the repo root
+**Venv:** `venv/` inside the repo root (activate before running scripts)
 
 ---
 
