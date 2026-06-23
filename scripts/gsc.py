@@ -3,7 +3,7 @@
 Google Search Console Search Analytics query tool.
 
 Fetches top queries or pages by clicks, impressions, CTR, and position.
-Requires a Service Account with GSC access (see docs/03-credentials.md Part B).
+Requires OAuth Desktop App credentials (see docs/03-credentials.md Part B).
 
 Usage:
     python scripts/gsc.py
@@ -132,7 +132,8 @@ def main():
     if not credentials:
         print(
             "Error: GSC credentials not configured.\n"
-            "See docs/03-credentials.md (Part B) to set up a Service Account.",
+            "Run: `python scripts/auth.py --auth --creds /path/to/client_secret.json`\n"
+            "See docs/03-credentials.md for instructions.",
             file=sys.stderr,
         )
         sys.exit(1)

@@ -51,6 +51,11 @@ echo ""
 echo "Checking credentials..."
 "$VENV_DIR/bin/python" "$REPO_DIR/scripts/auth.py" --check
 
+echo ""
+echo "One more step: authenticate with Google Search Console."
+echo "Run:  source venv/bin/activate && python scripts/auth.py --auth --creds /path/to/client_secret.json"
+echo "See docs/03-credentials.md for how to get your client_secret.json file."
+
 # 5. Next steps
 echo ""
 echo -e "${BOLD}Setup complete!${RESET}"

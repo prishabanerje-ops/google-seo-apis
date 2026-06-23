@@ -5,7 +5,7 @@ Choose based on what you need:
 | What you want | Credential type | Section |
 |---------------|----------------|---------|
 | PageSpeed Insights only | API Key | Part A |
-| Google Search Console | Service Account | Part B |
+| Google Search Console | OAuth Desktop App | Part B |
 | Both | Do both parts | A + B |
 
 ---
@@ -61,47 +61,55 @@ You should see: `API Key (PSI/CrUX)  ✓ OK`
 
 ---
 
-## Part B: Service Account (for Google Search Console)
+## Part B: OAuth Desktop App (for Google Search Console)
 
-### B.1 Create a Service Account
+**Goal:** Create OAuth credentials so `gsc.py` can access your Search Console data as you.
 
-1. In Google Cloud Console, go to **IAM & Admin** → **Service Accounts**
-2. Click **+ Create Service Account**
-3. Name it `gsc-reader`, click **Create and continue**
-4. Skip the role assignment step — click **Done**
+**Why:** OAuth means you log in as yourself in a browser — no service account, no property
+access grants needed. If you can see a property in Search Console, the script can too.
 
-> **Screenshot placeholder:** Service Account creation form
+### B.1 Create an OAuth Client ID
 
-### B.2 Download the JSON Key
+1. In [Google Cloud Console](https://console.cloud.google.com), go to
+   **APIs & Services** → **Credentials**
+2. Click **+ Create Credentials** → **OAuth client ID**
+3. If prompted for a consent screen: choose **External**, fill in App name
+   (e.g. "SEO APIs"), add your email as a test user, and save
+4. Application type: **Desktop app**
+5. Name it (e.g. "SEO APIs Desktop")
+6. Click **Create** → **Download JSON**
+7. Save the file somewhere safe (e.g. `~/client_secret.json`) — never inside the repo
 
-1. Click on your new service account in the list
-2. Go to the **Keys** tab
-3. Click **Add Key** → **Create new key** → **JSON**
-4. A `.json` file downloads — save it somewhere permanent
-   (e.g. `~/google-credentials/gsc-service-account.json`)
+### B.2 Run the Auth Command
 
-> **Warning:** This file is your private key. Never commit it to git or share it.
+**Mac/Linux:**
+```bash
+source venv/bin/activate
+python scripts/auth.py --auth --creds ~/client_secret.json
+```
 
-### B.3 Grant Access in Search Console
+**Windows:**
+```powershell
+venv\Scripts\activate
+python scripts/auth.py --auth --creds %USERPROFILE%\client_secret.json
+```
 
-1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Select your property
-3. Click **Settings** (gear icon) → **Users and permissions** → **Add user**
-4. Paste the `client_email` from your downloaded JSON file
-   (looks like `gsc-reader@your-project.iam.gserviceaccount.com`)
-5. Set permission to **Full**
-6. Click **Add**
+A browser window opens → sign in with your Google account → grant access.
+The terminal prints: `✓ Authenticated. Token saved.`
 
-> **Screenshot placeholder:** Search Console — Users and permissions page
+> **Note:** If you see "Google hasn't verified this app", click **Advanced** →
+> **Go to SEO APIs (unsafe)**. This is normal for personal Desktop apps that
+> haven't been through Google's verification process.
 
-### B.4 Add to Config File
+### B.3 Add GSC Property to Config
 
-Open `~/.config/google-seo-apis/config.json` and update it:
+Open `~/.config/google-seo-apis/config.json` (created automatically by the auth command)
+and add your GSC property:
 
 ```json
 {
   "api_key": "YOUR_API_KEY",
-  "service_account_path": "/absolute/path/to/gsc-service-account.json",
+  "oauth_client_path": "/absolute/path/to/client_secret.json",
   "gsc_property": "sc-domain:yourdomain.com"
 }
 ```
@@ -110,20 +118,22 @@ Open `~/.config/google-seo-apis/config.json` and update it:
 - Domain property (recommended): `sc-domain:example.com`
 - URL prefix property: `https://www.example.com/`
 
-**Windows path format:**
-```json
-{
-  "service_account_path": "C:\\Users\\YourName\\google-credentials\\gsc-service-account.json"
-}
-```
-
-### B.5 Verify
+### B.4 Verify
 
 ```bash
 python scripts/auth.py --check
 ```
 
-All three lines should show `✓ OK`.
+All three lines should show `✓ OK`:
+```
+  API key            ✓ OK
+  OAuth token        ✓ OK (expires YYYY-MM-DD)
+  GSC property       ✓ OK (sc-domain:...)
+```
+
+**Notes:**
+- The token auto-refreshes — you only need to run `--auth` once
+- Token stored at `~/.config/google-seo-apis/oauth-token.json` (outside repo, never committed)
 
 ---
 

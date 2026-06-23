@@ -2,8 +2,8 @@
 
 **Goal:** Pull your top queries and pages with clicks, impressions, CTR, and position.
 
-**Prerequisite:** Service Account credentials configured —
-see [docs/03-credentials.md Part B](03-credentials.md#part-b-service-account-for-google-search-console).
+**Prerequisite:** OAuth Desktop App credentials configured —
+see [docs/03-credentials.md Part B](03-credentials.md#part-b-oauth-desktop-app-for-google-search-console).
 
 ---
 

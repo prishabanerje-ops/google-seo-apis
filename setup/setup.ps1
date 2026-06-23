@@ -53,6 +53,12 @@ Write-Host "Checking credentials..."
 $python = Join-Path $venvDir "Scripts\python.exe"
 & $python (Join-Path $repoDir "scripts\auth.py") --check
 
+Write-Host ""
+Write-Host "One more step: authenticate with Google Search Console."
+Write-Host "Run:  venv\Scripts\activate"
+Write-Host "      python scripts\auth.py --auth --creds %USERPROFILE%\client_secret.json"
+Write-Host "See docs\03-credentials.md for how to get your client_secret.json file."
+
 # 5. Next steps
 Write-Host ""
 Write-Host "Setup complete!" -ForegroundColor White
