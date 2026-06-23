@@ -78,7 +78,20 @@ access grants needed. If you can see a property in Search Console, the script ca
 4. Application type: **Desktop app**
 5. Name it (e.g. "SEO APIs Desktop")
 6. Click **Create** → **Download JSON**
-7. Save the file somewhere safe (e.g. `~/client_secret.json`) — never inside the repo
+7. Google saves a file with a long name like:
+   `client_secret_123456789-abc.apps.googleusercontent.com.json`
+   **Rename it to something shorter** so it's easier to type:
+
+   **Mac/Linux:**
+   ```bash
+   mv ~/Downloads/client_secret_*.apps.googleusercontent.com.json ~/client_secret.json
+   ```
+   **Windows (PowerShell):**
+   ```powershell
+   Move-Item "$env:USERPROFILE\Downloads\client_secret_*.apps.googleusercontent.com.json" "$env:USERPROFILE\client_secret.json"
+   ```
+
+8. Keep the file in your home directory (`~/`) — never inside the repo
 
 ### B.2 Run the Auth Command
 
@@ -91,7 +104,7 @@ python scripts/auth.py --auth --creds ~/client_secret.json
 **Windows:**
 ```powershell
 venv\Scripts\activate
-python scripts/auth.py --auth --creds %USERPROFILE%\client_secret.json
+python scripts/auth.py --auth --creds $env:USERPROFILE\client_secret.json
 ```
 
 A browser window opens → sign in with your Google account → grant access.
