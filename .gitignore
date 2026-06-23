@@ -12,6 +12,9 @@ venv/
 .env
 config.json
 
+# Plugin manifest is safe to commit
+!.claude-plugin/plugin.json
+
 # Editor
 .DS_Store
 .vscode/

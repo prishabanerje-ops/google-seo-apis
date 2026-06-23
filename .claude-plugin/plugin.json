@@ -1,0 +1,33 @@
+{
+  "name": "google-seo-apis",
+  "version": "1.0.0",
+  "description": "PageSpeed Insights v5 + Core Web Vitals (CrUX real-user data) and Google Search Console Search Analytics via OAuth. Run PSI and GSC from your terminal with one setup command.",
+  "author": {
+    "name": "Aakash Srivastava",
+    "email": "aakashsrivastava1@policybazaar.com",
+    "url": "https://github.com/prishabanerje-ops"
+  },
+  "repository": "https://github.com/prishabanerje-ops/google-seo-apis",
+  "category": "seo",
+  "keywords": [
+    "seo",
+    "pagespeed",
+    "core-web-vitals",
+    "cwv",
+    "crux",
+    "google-search-console",
+    "gsc",
+    "lighthouse",
+    "lcp",
+    "inp",
+    "cls",
+    "fcp"
+  ],
+  "skills": [
+    {
+      "name": "google-seo-apis",
+      "path": "SKILL.md"
+    }
+  ],
+  "license": "MIT"
+}
