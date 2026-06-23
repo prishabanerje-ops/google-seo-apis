@@ -105,7 +105,7 @@ Then run the setup script from Quick Start above.
 
 ## Author
 
-Built by [Aakash Srivastava](https://github.com/aakashsrivastava1)
+Built by [Aakash Srivastava](https://github.com/prishabanerje-ops)
 
 ---
 
