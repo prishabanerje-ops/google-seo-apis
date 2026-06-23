@@ -3,8 +3,8 @@
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "Google SEO APIs — Setup" -ForegroundColor White
-Write-Host "──────────────────────────────────────────"
+Write-Host "Google SEO APIs - Setup" -ForegroundColor White
+Write-Host "------------------------------------------"
 
 # 1. Find Python 3.8+
 $pythonCmd = $null
