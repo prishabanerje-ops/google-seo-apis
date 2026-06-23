@@ -5,6 +5,8 @@ Google Search Console Search Analytics query tool.
 Fetches top queries or pages by clicks, impressions, CTR, and position.
 Requires OAuth Desktop App credentials (see docs/03-credentials.md Part B).
 
+Author: Aakash Srivastava
+
 Usage:
     python scripts/gsc.py
     python scripts/gsc.py --property sc-domain:example.com

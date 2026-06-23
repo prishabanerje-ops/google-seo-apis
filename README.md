@@ -97,9 +97,15 @@ Then run the setup script from Quick Start above.
 |---------|-----|
 | `ModuleNotFoundError: googleapiclient` | Activate venv first: `source venv/bin/activate` |
 | PSI returns error 400 | URL must start with `https://` |
-| GSC returns 403 | Add the service account email to Search Console users |
+| GSC returns 403 | Run `python scripts/auth.py --auth --creds ~/client_secret.json` to re-authenticate |
 | No CrUX field data shown | Normal for low-traffic URLs — Lighthouse data still shown |
 | `setup.ps1` blocked on Windows | Run `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned` |
+
+---
+
+## Author
+
+Built by [Aakash Srivastava](https://github.com/aakashsrivastava1)
 
 ---
 

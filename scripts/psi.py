@@ -8,6 +8,8 @@ field data (loadingExperience). No separate CrUX API call is needed.
 CrUX field data is only present when the URL has enough real-user Chrome traffic.
 If loadingExperience is empty, "No field data available" is shown and lab data only.
 
+Author: Aakash Srivastava
+
 Usage:
     python scripts/psi.py https://example.com
     python scripts/psi.py https://example.com --strategy desktop

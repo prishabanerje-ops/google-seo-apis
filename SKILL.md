@@ -10,6 +10,7 @@ description: >
 user-invokable: true
 argument-hint: "[pagespeed|gsc|check|auth] [url|property]"
 metadata:
+  author: Aakash Srivastava
   version: "1.0.0"
   category: seo
 ---

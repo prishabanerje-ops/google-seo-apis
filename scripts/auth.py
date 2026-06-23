@@ -5,6 +5,8 @@ Credential loader for google-seo-apis.
 Reads ~/.config/google-seo-apis/config.json with environment variable fallbacks.
 Used by psi.py and gsc.py.
 
+Author: Aakash Srivastava
+
 Usage:
     python scripts/auth.py --check
     python scripts/auth.py --auth --creds /path/to/client_secret.json
